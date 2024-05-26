@@ -1,0 +1,480 @@
+AStarFinder
+[(54, 6), (60, 18), (27, 19), (71, 26), (13, 32), (37, 35), (54, 37), (2, 41), (55, 54), (40, 68)]
+
++---------------------------------------------------------------------------+
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                xxxxxxs                    |
+|                                               x   xxxxx                   |
+|                                       xxxxxxxx xxxxxxxxx                  |
+|                                      x        x xxxxxxxxx                 |
+|                                     x        x xxxxxxxxxxx                |
+|                                    x        x xxxxxxxxx xx                |
+|                                   x        x xxx xx xxx xxx               |
+|                                  x        x xxx xxx xxx  xxx              |
+|                                 x        x xxx xxxx xxx  x xx             |
+|                                x        x xxx x xxx x x  x  xx            |
+|                               x        x xxx x  xxx  xx  xx  xx           |
+|                              x    xxxxxxxxx x   xxx  xx   xx  xx          |
+|                             xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxsx  xx         |
+|                          xsxxxxxxxxxxxxxxxxxxxxxxxx  xx xxxxxx  xx        |
+|                         xxxxxxxxxxxxxxxxxxx     xxx  xxxxxxx xxx xx       |
+|                        xxxxxxx    x   xxxxxxxxxxxxxxxxxxxxxx   xx x       |
+|                       xxx xxxxx  x   xx x xxxxxxxxxxxxxxxxxxxxxxxxxx      |
+|                      xxx  xx xxxxxxxxxxxxxxxxxxxxxx  xxx xxx     xxxx     |
+|                     xxx    xx xxxxxxxxxxx  x x  xxx  xxx xxx      xxxx    |
+|                    xxx     x xxxxxxx x  x x x  xx xxxxxxxxxxxxxxxxxxxxx   |
+|                   xxx      x xx xxx x  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxs   |
+|                  xxx       xx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx   |
+|                xxxx        xx  xxxx xx xxx xxx  x x  xxxxxxxxxx xxxxxx    |
+|               xxxx      xxxxxxxxxx  xxx x  xx  xxxxxxxxx xx   xxx xxx     |
+|              xxxx   xxxx x xxxx  xxx xxxx xx xx x x  xxx xx  xx  x x      |
+|             xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  xx xxx  xxx xx xx  x xx      |
+|            xsxxxxxxxxxxx   xx     xxxxxxxxxxxxxxx x xxxxxxxxx  x x x      |
+|           x xxxxxxx  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxx   x x  x      |
+|          x  xx xx  x x   x  xx   xx xxxxxxx  xx xxx  xxxxx xxx x   x      |
+|         x  x xx xx  x   x    xxxxxxxsxxxxxx  xx x xx xx xxx   x    x      |
+|        x  x   xx xxx x x     x x xx xxx x xxxxxxxxxxxxxxxx   x     x      |
+|       x  x     xx xx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxsx xx  x      x      |
+|     xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xx x       x      |
+|    xxxxxxxxxxxxxxxx xx     x x    x x xxx  x   x  x xxx x x        x      |
+|   xxxxxxxxxxxxxxxxxx xx   x xxxxxxxxxxx  x xx x  x xxxxxxx         x      |
+|  sxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  x xx  x x xxx xx        x       |
+|   xx    x      x    xx  x    x     x xx x  xxxxx x  xxxxxx       x        |
+|     x    xxxxxxxx    x   x   x     x  x  x xx xxx   xxx xx      x         |
+|      x           xxxxxxxxxxx x     x  x   x  x x   xxxx xx     x          |
+|       x           x  x x   xxxxxxxxxxxx  xxxx xxx xxxxx xx    x           |
+|        x           x x  x    xx    x  xxx xxxx x x xxxx xx   x            |
+|         x           xx   x   x x   x  xxx x xx xx xxxxxxxx  x             |
+|          x           x    x  x  x   x xx xxxxxxxxx xxxx xx x              |
+|           x           x    x x   x  x xx  x   xxxxxxxxxx xx               |
+|            xxxxxxxxxx  x    x x   x x xx  x  x  xxxxxxxxxx                |
+|             x        x  xxxxxxxxxxxxxxxx  x x    xxxxxxxxx                |
+|              x        x  x    x x   x  xxxxxxxx   xxxxxxx                 |
+|               x        x  x   x  x   xxxxxxxxxxxxxxxxxxx                  |
+|                x        x  x  x   x  x x xx     xxxxxxs                   |
+|                 x        x  x x    x x xxxx       xxxx                    |
+|                  x        x  xx     xx xxxx       xxx                     |
+|                   x        x  x      x xxxx      xxx                      |
+|                    x        x xx     xxxxxx     xxx                       |
+|                     xxxxxxxxxx xx    x xxxx    xxx                        |
+|                               x xx   x xxxx   xxx                         |
+|                                x xx   xxx x  xxx                          |
+|                                 x xx   xx x xxx                           |
+|                                  x xx  xxx xxx                            |
+|                                   x xx xx xxx                             |
+|                                    x xxxxxxx                              |
+|                                     x xxxxx                               |
+|                                      xxxxx                                |
+|                                       xsx                                 |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
++---------------------------------------------------------------------------+
+BestFirst
+[(54, 6), (60, 18), (27, 19), (71, 26), (13, 32), (37, 35), (54, 37), (2, 41), (55, 54), (40, 68)]
+
++---------------------------------------------------------------------------+
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                     xxxxxxxxxxxxxxxxxs                    |
+|                                    x xx             xxx                   |
+|                                   x xx             x xxx                  |
+|                                  x xx             x  xx x                 |
+|                                 x xx             x   xx  x                |
+|                                x xx             x    xxx  x               |
+|                               x xx             x     xx x  x              |
+|                              x xx             x      xx  x xx             |
+|                             x xx             x       xxx  xx x            |
+|                            x xx             x        xx x  x  x           |
+|                           x xx             x         xx  x xx  x          |
+|                          x xx             x          xx   xx x  x         |
+|                         xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxsxxx  x        |
+|                        xxxsxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  x       |
+|                       x xxxx        x  x           x xx  x x x  x  x      |
+|                      x xx x x        xxx          x  xx x  x  x  x  x     |
+|                     x xx  x  x       xxx         x   xxx   x   x  x  x    |
+|                    x xx   x   x     x  x        x    xx    x    x  x  x   |
+|                   x xx    x    x   xx  xx      x     xx    x     x  x x   |
+|                  x xx     x     x x x  x x    x     xxx    x      x  xx   |
+|                 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxs   |
+|                x xx       xxx   x x x  x   xx     x  xx    x   x     xx   |
+|               x xx        x xx x   xx  x   xx    x   xx    x  x     x x   |
+|              x xx         x  xx     x  x  x  x  x    xx    x x     x  x   |
+|             x xx          x  xxx    xx x x    xx     xx    xx     x   x   |
+|            x xx           x x  xx   x xxx     xx     xx    x     x    x   |
+|           xxsxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx     x   |
+|          x xxx            x      xx x xxx   x    x   xx  x x   x      x   |
+|         x xxx x          xx       xxxx x x x      x  xx x  x  x       x   |
+|        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxsxxxxxxxxxxxxxxxxxxxxxxxxx        x   |
+|       x xx  x   x      x  x        xxx x x x        xxx    xx         x   |
+|      xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxsxxxxxx          x   |
+|     x xx    x     x  x    x      x  x xx     x      xxx   xx         xx   |
+|    x xx     x      xx     x     x   x xxx     x    x xx  x x        xx    |
+|   x xx      x      xx     x    x    xx xxx     x  x  xx x  x       xx     |
+|  sxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx   x      xx      |
+|   x          x        x   x         x  x  xx    xx   xx    x     xx       |
+|    x          x        x  x         x  x   xx  x  x  xx    x    xx        |
+|     x          x        x x         x  x    xxx    xxxx    x   xx         |
+|      x          x        xx         x  x     xx    xxxx    x  xx          |
+|       x          x        x         x  x    x xx  x  xx    x xx           |
+|        x          x       xx        x  x   x   xxx   xx    xxx            |
+|         x          x      x x       x  x  x     xx   xx    xx             |
+|          x          x     x  x      x  x x     x xx  xx   xx              |
+|           x          x    x   x     x  xx     x   xx xx  xx               |
+|            x          x   x    x    x  x     x     xxxx xx                |
+|             x          x  x     x   x  x    x       xxxxx                 |
+|              x          x x      x  x  x   x         xxx                  |
+|               xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxs                   |
+|                x          x        xx  x x          xx                    |
+|                 x          x        x  xx          xx                     |
+|                  x          x       xx x          xx                      |
+|                   x          x      x xx         xx                       |
+|                    x          x     x  x        xx                        |
+|                     x          x    x  x       xx                         |
+|                      x          x   x  x      xx                          |
+|                       x          x  x  x     xx                           |
+|                        x          x x  x    xx                            |
+|                         x          xx  x   xx                             |
+|                          x          x  x  xx                              |
+|                           x          x x xx                               |
+|                            x          xxxx                                |
+|                             xxxxxxxxxxxsx                                 |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
++---------------------------------------------------------------------------+
+BiAStarFinder
+[(54, 6), (60, 18), (27, 19), (71, 26), (13, 32), (37, 35), (54, 37), (2, 41), (55, 54), (40, 68)]
+
++---------------------------------------------------------------------------+
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                      x                    |
+|                                                xxxxxxs                    |
+|                                               x  x  xxx                   |
+|                                       xxxxxxxx  x  xxx x                  |
+|                                     xx xxxxxxxxxxxxx x xx                 |
+|                                    x  xx         xx xx x x                |
+|                                   x  xx         xx x x x xx               |
+|                                  x  xx         xxxx  x  xx x              |
+|                                 x  xx         xx xx  x   x  x             |
+|                               xxxxxx         xx  xx  x   xx  x            |
+|                              xx   x         xx   xx  x   x x  x           |
+|                             xx   x        xx     xx  x   x  x  x          |
+|                            xx   x xxxxxxxxx      xx  x    xx x  x         |
+|                           xx   x x       xxxxxxxxxxxxxxxxxxs  x  x        |
+|                          xsxxxxxxxxxxxxxxxxx     xx  x  xxxxx  x  x       |
+|                         xxxxxx         xx   xxxxxxxxxxxx xxx xxxx x       |
+|                        x  x xx        xxxxxxxxxxxxxxxxxxxx x  x xxx       |
+|                       x   xx xx      xx x       xxxxxxxxxxxxxxxxxxx       |
+|                      x    xxx xxxxxxxxxxxxxxxxxxx x  xxx x x    xxxx      |
+|                     x     x x  xxxxxx x x      x  x  x x x x      xxx     |
+|                    x      xx xx x xxxx  x     x   x xx x xxx        xxx   |
+|                   xx      xx xx  xx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxs   |
+|                  xx      x  xx xxxxxxxxxx  xx     x  x x x x   xxxxxxxx   |
+|                xxx      x  xxx xxxx    xx xx     xx  x xxxxxxxx  xxxxx    |
+|               xxxxxxxxxxxxxxxxxxxx      xxx     xxxxxxxx x x  xxx xxx     |
+|              xxx      x     xxx  xx     xxx    xx x  xxx x x x   xxx      |
+|             xxx      x      xx    xx   xxxxxxxxx  x xxxx x xx   xxxx      |
+|            xsxxxxxxxxxxxxxxxxxxxxxxxxxxx   xxxxxxxxxxxxx x x   xxx x      |
+|           x  xx    x   xx xxx xx  x xxx     xxxxxxxx xxxxxxx  xxx  x      |
+|          x   x x  x xxxxxxxxx   x  xxxxxxxxxx x   x  xxxxxxxxxxx   x      |
+|        xx     x xxxxxxxxxxxxxxxxxxxxsxxxxxxxxx    xx xx xxx  xx    x      |
+|       xx       xxx     xx    x xx x x  xx xxx x   x xxxxxx  xx     x      |
+|       xx       xx x   xx     x xxxxxxxxxxxxxxxxxxxxxxsxxx  xx      x      |
+|     xxxxxxxxxxxxxxxxxxxxxxxxxxx     x x xxx     x   xxxx  xx       x      |
+|    xxxxxxxxxxxxxx x xx     x x      x  x  xx   x   xxxx  xx        x      |
+|  xxxxx  x          xxx      xxxxxxxxxxxxxxxxxxxxxxx xxx  x         x      |
+|  sxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xx xx     xxxx xx         x      |
+|   xx    x            x   x   x      xx  x xxxxx   x xxxx x        x       |
+|     x    xxxxxxxx    xx  x   x      x x  xxx  xx x  xxx  x       x        |
+|      x           xxxxxxxxxxxxxxx    x x  xx xx xx  xxxx  x      x         |
+|       x            x x  x  xxxxxxxxxxxxxxxxxxxxx  xxxxx  x     x          |
+|        x           x x   xx  x   x  x x   x  xxx x xxxx  x    x           |
+|         x           xx     x x    x x x   x  xxxx  xx x  x   x            |
+|          x           x      xx     xx x   x x  xxx xx x  x  x             |
+|           x          xx      x      x x   xx  x xxxxx x  x x              |
+|            xxxxxxxxxxx x      x     x x   x  x   xxxx x xxx               |
+|             x        xx xxxxxxxxxxxxxxxx  x x     xxx xx x                |
+|              x        xx      x x   x  xxxxxxxx   xxxxx x                 |
+|               x        xx     x  x   x x xx    x x  xxxx                  |
+|                x        xxx   x   xx x x xx     xxxxxxs                   |
+|                 x        x x  x     xx x xx    x   xxx                    |
+|                  x        x x x     xx x xx   x   xx                      |
+|                   x        x xx     xx x xx  x   xx                       |
+|                    x        x x     xx x xx x   xx                        |
+|                     xxxxxxxxxx x    xx x xxx   xx                         |
+|                               x x   xx x xx   xx                          |
+|                                x x  x xxxxx  xxx                          |
+|                                 x x x  xx x x x                           |
+|                                  x x x xxx x x                            |
+|                                   x x xxx x x                             |
+|                                    x x xxx x                              |
+|                                     x xxx x                               |
+|                                      xxxxx                                |
+|                                        s                                  |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
++---------------------------------------------------------------------------+
+BreadthFirstFinder
+[(54, 6), (60, 18), (27, 19), (71, 26), (13, 32), (37, 35), (54, 37), (2, 41), (55, 54), (40, 68)]
+
++---------------------------------------------------------------------------+
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                     xxxxxxxxxxxxxxxxxs                    |
+|                                    x xx             xxx                   |
+|                                   x xx             x xxx                  |
+|                                  x xx             x  xx x                 |
+|                                 x xx             x   xx  x                |
+|                                x xx             x    xxx  x               |
+|                               x xx             x     xx x  x              |
+|                              x xx             x      xx  x xx             |
+|                             x xx             x       xxx  xx x            |
+|                            x xx             x        xx x  x  x           |
+|                           x xx             x         xx  x xx  x          |
+|                          x xx             x          xx   xx x  x         |
+|                         xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxsxxx  x        |
+|                        xxxsxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  x       |
+|                       x xxxx        x  x           x xx  x x x  x  x      |
+|                      x xx x x        xxx          x  xx x  x  x  x  x     |
+|                     x xx  x  x       xxx         x   xxx   x   x  x  x    |
+|                    x xx   x   x     x  x        x    xx    x    x  x  x   |
+|                   x xx    x    x   xx  xx      x     xx    x     x  x x   |
+|                  x xx     x     x x x  x x    x     xxx    x      x  xx   |
+|                 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxs   |
+|                x xx       xxx   x x x  x   xx     x  xx    x   x     xx   |
+|               x xx        x xx x   xx  x   xx    x   xx    x  x     x x   |
+|              x xx         x  xx     x  x  x  x  x    xx    x x     x  x   |
+|             x xx          x  xxx    xx x x    xx     xx    xx     x   x   |
+|            x xx           x x  xx   x xxx     xx     xx    x     x    x   |
+|           xxsxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx     x   |
+|          x xxx            x      xx x xxx   x    x   xx  x x   x      x   |
+|         x xxx x          xx       xxxx x x x      x  xx x  x  x       x   |
+|        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxsxxxxxxxxxxxxxxxxxxxxxxxxx        x   |
+|       x xx  x   x      x  x        xxx x x x        xxx    xx         x   |
+|      xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxsxxxxxx          x   |
+|     x xx    x     x  x    x      x  x xx     x      xxx   xx         xx   |
+|    x xx     x      xx     x     x   x xxx     x    x xx  x x        xx    |
+|   x xx      x      xx     x    x    xx xxx     x  x  xx x  x       xx     |
+|  sxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx   x      xx      |
+|   x          x        x   x         x  x  xx    xx   xx    x     xx       |
+|    x          x        x  x         x  x   xx  x  x  xx    x    xx        |
+|     x          x        x x         x  x    xxx    xxxx    x   xx         |
+|      x          x        xx         x  x     xx    xxxx    x  xx          |
+|       x          x        x         x  x    x xx  x  xx    x xx           |
+|        x          x       xx        x  x   x   xxx   xx    xxx            |
+|         x          x      x x       x  x  x     xx   xx    xx             |
+|          x          x     x  x      x  x x     x xx  xx   xx              |
+|           x          x    x   x     x  xx     x   xx xx  xx               |
+|            x          x   x    x    x  x     x     xxxx xx                |
+|             x          x  x     x   x  x    x       xxxxx                 |
+|              x          x x      x  x  x   x         xxx                  |
+|               xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxs                   |
+|                x          x        xx  x x          xx                    |
+|                 x          x        x  xx          xx                     |
+|                  x          x       xx x          xx                      |
+|                   x          x      x xx         xx                       |
+|                    x          x     x  x        xx                        |
+|                     x          x    x  x       xx                         |
+|                      x          x   x  x      xx                          |
+|                       x          x  x  x     xx                           |
+|                        x          x x  x    xx                            |
+|                         x          xx  x   xx                             |
+|                          x          x  x  xx                              |
+|                           x          x x xx                               |
+|                            x          xxxx                                |
+|                             xxxxxxxxxxxsx                                 |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
++---------------------------------------------------------------------------+
+DijkstraFinder
+[(54, 6), (60, 18), (27, 19), (71, 26), (13, 32), (37, 35), (54, 37), (2, 41), (55, 54), (40, 68)]
+
++---------------------------------------------------------------------------+
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                xxxxxxs                    |
+|                                               x    x x                    |
+|                                       xxxxxxxx    x xxx                   |
+|                                   xxxx           x xxxxx                  |
+|                                  x  x           x x xxxxx                 |
+|                                 x  x           x x xxxx xx                |
+|                                x  x           x x x xxx xxx               |
+|                               x  x           x x  x xxx xxxx              |
+|                              x  x           x x   x xxx x xxx             |
+|                             x  x           x x    x x x  x xxx            |
+|                            x  x           x x     x  xx   xx xx           |
+|                           x  x    xxxxxxxx x      x  xx    x  xx          |
+|                          xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxsxx xx         |
+|                         xxsxxxxxxxxxxxxxxxxxxxxxxxx  xxx x x xx xx        |
+|                        xxxx x x       x x         x  xx x xx  xx xx       |
+|                       xxx xx x x     x xx        xxxxxxxxxxxxxxxx xx      |
+|                      xxx  x x x xxxxxx xx       x xxxxx x  x    xx xx     |
+|                     xxx   xx x x   x  xxx      x xx  xxx   x     xx xx    |
+|                    xxx     xx x x x    xx     x xxx  xxx   x      xx xx   |
+|                   xxx      x x x x     xx    x xx x  xxx  xx       xx x   |
+|                  xxx      xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxs   |
+|                 xxxxxxxxxx  x xx x x   xx xx xx   xx xxx x x   x  x x x   |
+|                xxx          x xx xx x  xx xxxx    x  xxxxxxxxxx  x x xx   |
+|               xxx           xx  xx x x xxx xxxxxxxxxxxxx x x  xxx x x x   |
+|              xxx    xxxxxxxxx    xx x x x xxxxxxxxxxxxxxxxxxxxxxxx x x    |
+|             xxx    x    xxxxxxxxxxxxxxxxxxx   xx  x  xx  x xx   x x x     |
+|            xsxxxxxxxxxxx  x x     x x x xx    xx  x xxxxxxxxxxxx x x      |
+|           x x x x    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xx x xx  x x  x      |
+|          x  xx x x      x   xx    x x xxx x  xxx xx  xxx x xxx x   x      |
+|         x   x x x xxxxxxxx  xxxxxxxxsxxxxxx  x  x x  xx x xxx x    x      |
+|        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx x xxxxxxxxxx xxx x x x     x      |
+|       xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxsxxx xxx      x      |
+|      x         x xxxx        x  x  xxxxxx x x     xx xx  x x       x      |
+|     x    xxxxxxxx x x        x x  x x x xx   x    x xxx x xx       x      |
+|    x    x      x   x x       xx  x  x xxxxx   x  xxx xxx x x      xx      |
+|  sxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xx x     xx       |
+|    x x         x     x x     x       xx xx xx   xxx  xxx x x    xx        |
+|     x x        x      x x    x        x x x xx  xxx  xx  x x   xx         |
+|      x xxxxxxxx x      x x   x        x x  x xxx  x xxx  x x  xx          |
+|       x        x x      x x  x        x x   x xx  xxxxx  x x xx           |
+|        x        x x      x x x        xx     x xx xx xx  x xxx            |
+|         x        x x      x xx        xx    x x xxxx xx  x xx             |
+|          x        x x      x x        xx   x   x xxx xx  xxx              |
+|           x        x x      xxx       xx  x     x xxxxx xxx               |
+|            x        x x      x x      xx  x    x xxxxxxxxx                |
+|             x        x x     xx xxxxxxxx  x   x   xxxxxxx                 |
+|              x        x x    x x      xxxxxxxxx   xx xxx                  |
+|               x        x x   x  x     xx x  x  x  x xxx                   |
+|                xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxs                   |
+|                 x        x x x    x   xx xx     x xxxx                    |
+|                  x        x xx     x  xx xx    x  xxx                     |
+|                   x        x x      x xx xx   x  xxx                      |
+|                    x        x x     x xx xx  x  xxx                       |
+|                     x        x x    x xx xx x  xxx                        |
+|                      x        x x   x xx xxx  xxx                         |
+|                       x        x x  x xxx x  xxx                          |
+|                        x        x x x xx xx xxx                           |
+|                         x        x x xxxxx xxx                            |
+|                          x        x x xxx xxx                             |
+|                           xxxxxxxx x xxx xxx                              |
+|                                   x x xxxxx                               |
+|                                    x x xxx                                |
+|                                     xxxsx                                 |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
++---------------------------------------------------------------------------+
+MinimumSpanningTree
+[(54, 6), (60, 18), (27, 19), (71, 26), (13, 32), (37, 35), (54, 37), (2, 41), (55, 54), (40, 68)]
+
++---------------------------------------------------------------------------+
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                xxxxxxs                    |
+|                                               x    x x                    |
+|                                       xxxxxxxx    x xxx                   |
+|                                   xxxx           x xxxxx                  |
+|                                  x  x           x x xxxxx                 |
+|                                 x  x           x x xxxx xx                |
+|                                x  x           x x x xxx xxx               |
+|                               x  x           x x  x xxx xxxx              |
+|                              x  x           x x   x xxx x xxx             |
+|                             x  x           x x    x x x  x xxx            |
+|                            x  x           x x     x  xx   xx xx           |
+|                           x  x    xxxxxxxx x      x  xx    x  xx          |
+|                          xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxsxx xx         |
+|                         xxsxxxxxxxxxxxxxxxxxxxxxxxx  xxx x x xx xx        |
+|                        xxxx x x       x x         x  xx x xx  xx xx       |
+|                       xxx xx x x     x xx        xxxxxxxxxxxxxxxx xx      |
+|                      xxx  x x x xxxxxx xx       x xxxxx x  x    xx xx     |
+|                     xxx   xx x x   x  xxx      x xx  xxx   x     xx xx    |
+|                    xxx     xx x x x    xx     x xxx  xxx   x      xx xx   |
+|                   xxx      x x x x     xx    x xx x  xxx  xx       xx x   |
+|                  xxx      xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxs   |
+|                 xxxxxxxxxx  x xx x x   xx xx xx   xx xxx x x   x  x x x   |
+|                xxx          x xx xx x  xx xxxx    x  xxxxxxxxxx  x x xx   |
+|               xxx           xx  xx x x xxx xxxxxxxxxxxxx x x  xxx x x x   |
+|              xxx    xxxxxxxxx    xx x x x xxxxxxxxxxxxxxxxxxxxxxxx x x    |
+|             xxx    x    xxxxxxxxxxxxxxxxxxx   xx  x  xx  x xx   x x x     |
+|            xsxxxxxxxxxxx  x x     x x x xx    xx  x xxxxxxxxxxxx x x      |
+|           x x x x    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xx x xx  x x  x      |
+|          x  xx x x      x   xx    x x xxx x  xxx xx  xxx x xxx x   x      |
+|         x   x x x xxxxxxxx  xxxxxxxxsxxxxxx  x  x x  xx x xxx x    x      |
+|        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx x xxxxxxxxxx xxx x x x     x      |
+|       xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxsxxx xxx      x      |
+|      x         x xxxx        x  x  xxxxxx x x     xx xx  x x       x      |
+|     x    xxxxxxxx x x        x x  x x x xx   x    x xxx x xx       x      |
+|    x    x      x   x x       xx  x  x xxxxx   x  xxx xxx x x      xx      |
+|  sxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xx x     xx       |
+|    x x         x     x x     x       xx xx xx   xxx  xxx x x    xx        |
+|     x x        x      x x    x        x x x xx  xxx  xx  x x   xx         |
+|      x xxxxxxxx x      x x   x        x x  x xxx  x xxx  x x  xx          |
+|       x        x x      x x  x        x x   x xx  xxxxx  x x xx           |
+|        x        x x      x x x        xx     x xx xx xx  x xxx            |
+|         x        x x      x xx        xx    x x xxxx xx  x xx             |
+|          x        x x      x x        xx   x   x xxx xx  xxx              |
+|           x        x x      xxx       xx  x     x xxxxx xxx               |
+|            x        x x      x x      xx  x    x xxxxxxxxx                |
+|             x        x x     xx xxxxxxxx  x   x   xxxxxxx                 |
+|              x        x x    x x      xxxxxxxxx   xx xxx                  |
+|               x        x x   x  x     xx x  x  x  x xxx                   |
+|                xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxs                   |
+|                 x        x x x    x   xx xx     x xxxx                    |
+|                  x        x xx     x  xx xx    x  xxx                     |
+|                   x        x x      x xx xx   x  xxx                      |
+|                    x        x x     x xx xx  x  xxx                       |
+|                     x        x x    x xx xx x  xxx                        |
+|                      x        x x   x xx xxx  xxx                         |
+|                       x        x x  x xxx x  xxx                          |
+|                        x        x x x xx xx xxx                           |
+|                         x        x x xxxxx xxx                            |
+|                          x        x x xxx xxx                             |
+|                           xxxxxxxx x xxx xxx                              |
+|                                   x x xxxxx                               |
+|                                    x x xxx                                |
+|                                     xxxsx                                 |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
+|                                                                           |
++---------------------------------------------------------------------------+
