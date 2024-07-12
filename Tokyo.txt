@@ -1,480 +1,480 @@
 AStarFinder
 [(19, 0), (33, 0), (1, 1), (62, 1), (1, 7), (27, 17), (57, 25), (15, 27), (23, 33), (14, 34), (37, 36), (74, 36), (73, 44), (61, 52), (33, 54), (29, 55), (0, 64), (26, 72)]
 
-+---------------------------------------------------------------------------+
-|                   s             s                                         |
-| s                 x            xx                            s            |
-| xx                xx           x                             x            |
-|  xx               xx          xx                             x            |
-|   x               xx          xx                             x            |
-|   x               xx          xx                            x             |
-|   x               xx          xx                           x              |
-| sxx               xx          xx                          x               |
-|  xx               xx          x                          xx               |
-|   xxx             xx          x                         x x               |
-|   xx x            xx          x                        x  x               |
-|   x x x           xx          x                       x   x               |
-|   xx x x          xx          x                      x    x               |
-|   x x x x         xx          x                     x     x               |
-|   x  x x x        xx          x                    x      x               |
-|   x   x x x       xx          x                   x       x               |
-|   x    x x x      xx         x                   x        x               |
-|    x    x x x     xx      sxxx                  x         x               |
-|    x     x x x    xx       xxx                 x          x               |
-|    x      x x x   xx      x  x                x           x               |
-|    x       x xxxxxxxxxxxxxx  xx              x            x               |
-|    x        x   x xx    x  x x x            x             x               |
-|    x         x   xxx   x    x   x          x              x               |
-|     x         x   xx  x    x x   x        x               x               |
-|      x         x  xx x    x   x   x      x                x               |
-|       x         x xxx    x     x   x    x               sxx               |
-|        x         xxx x  x       x   xxxxxxxxxxxxxxxxxx   xx               |
-|         x     sx  xx  xx         x   xx               x x  xxx            |
-|          x      xxxx  xx          x  xx                x    x xxx         |
-|           x     xxxxxx  x          xx  x              x x    x   x        |
-|            x   x  xxxxxxxxxxxx     xx   x            x   x    x   x       |
-|             x x   xx  x   x   x    x x   x          x     x    x   x      |
-|              x    xxxxxx   x   x   x  x   x        x       x    x   x     |
-|             x xxxxxxxxsxxxxxxxxxx  x   x   x      x         x    xxx x    |
-|            x sxxxxxxxx   x   x   x x    x   x    x           x      xxx   |
-|           x    xx  x  x  x    x   xx     x   xxxxxxxxxxxxxxxxxx        x  |
-|          x    x  x  x  x x     x   xs     x    x               x        xs|
-|         x    x    x  x  xx      x  x       x  x                 x         |
-|        x    x      x  x xx       x x        xx                   x        |
-|       x    x        x  xxx        xxxxxxxxxxxxxx                  x       |
-|      x    x          x  x x        x       x  x x                  x      |
-|     x    x            x xxx        x      x    x x                  x     |
-|    x    x              xxxx        x     x      x x                  x    |
-|   x    x                xxx        x    x        x x                  xx  |
-|   x   x                 xxx        x   x          x x                  xs |
-|   x  x                  xxx        x  x            x x                    |
-|   x x                   xxx        x x              x x                   |
-|   xx                    xxx        xx                x x                  |
-|   x                     xxx        x                  x x                 |
-|  x                      xxx       x                    x x                |
-|  x                      xxx      x                      xxx               |
-|  x                      xxx     x                         xx              |
-|  x                      xxx     x                          xs             |
-|  x                      xxxx    x                                         |
-|  x                      xx xx   s                                         |
-|  x                      xx  s                                             |
-|  x                      xx                                                |
-| xx                      xx                                                |
-| xx                      xx                                                |
-| xx                      xx                                                |
-| xx                      xx                                                |
-| xx                      xx                                                |
-| x                       xx                                                |
-|xx                       xx                                                |
-|s                        xx                                                |
-|                         xx                                                |
-|                         xx                                                |
-|                         xx                                                |
-|                         xx                                                |
-|                         xx                                                |
-|                         xx                                                |
-|                          x                                                |
-|                          s                                                |
-|                                                                           |
-|                                                                           |
-+---------------------------------------------------------------------------+
+  +  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  +  
+  |                                                           s                                         s                                                                                                                             |  
+  |     s                                                     x                                      x  x                                                                                      s                                      |  
+  |     x  x                                                  x  x                                   x                                                                                         x                                      |  
+  |        x  x                                               x  x                                x  x                                                                                         x                                      |  
+  |           x                                               x  x                                x  x                                                                                         x                                      |  
+  |           x                                               x  x                                x  x                                                                                      x                                         |  
+  |           x                                               x  x                                x  x                                                                                   x                                            |  
+  |     s  x  x                                               x  x                                x  x                                                                                x                                               |  
+  |        x  x                                               x  x                                x                                                                                x  x                                               |  
+  |           x  x  x                                         x  x                                x                                                                             x     x                                               |  
+  |           x  x     x                                      x  x                                x                                                                          x        x                                               |  
+  |           x     x     x                                   x  x                                x                                                                       x           x                                               |  
+  |           x  x     x     x                                x  x                                x                                                                    x              x                                               |  
+  |           x     x     x     x                             x  x                                x                                                                 x                 x                                               |  
+  |           x        x     x     x                          x  x                                x                                                              x                    x                                               |  
+  |           x           x     x     x                       x  x                                x                                                           x                       x                                               |  
+  |           x              x     x     x                    x  x                             x                                                           x                          x                                               |  
+  |              x              x     x     x                 x  x                    s  x  x  x                                                        x                             x                                               |  
+  |              x                 x     x     x              x  x                       x  x  x                                                     x                                x                                               |  
+  |              x                    x     x     x           x  x                    x        x                                                  x                                   x                                               |  
+  |              x                       x     x  x  x  x  x  x  x  x  x  x  x  x  x  x        x  x                                            x                                      x                                               |  
+  |              x                          x           x     x  x              x        x     x     x                                      x                                         x                                               |  
+  |              x                             x           x  x  x           x              x           x                                x                                            x                                               |  
+  |                 x                             x           x  x        x              x     x           x                          x                                               x                                               |  
+  |                    x                             x        x  x     x              x           x           x                    x                                                  x                                               |  
+  |                       x                             x     x  x  x              x                 x           x              x                                               s  x  x                                               |  
+  |                          x                             x  x  x     x        x                       x           x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x           x  x                                               |  
+  |                             x                 s  x        x  x        x  x                             x           x  x                                               x     x        x  x  x                                      |  
+  |                                x                    x  x  x  x        x  x                                x        x  x                                                  x              x     x  x  x                             |  
+  |                                   x                 x  x  x  x  x  x        x                                x  x        x                                            x     x              x           x                          |  
+  |                                      x           x        x  x  x  x  x  x  x  x  x  x  x  x                 x  x           x                                      x           x              x           x                       |  
+  |                                         x     x           x  x        x           x           x              x     x           x                                x                 x              x           x                    |  
+  |                                            x              x  x  x  x  x  x           x           x           x        x           x                          x                       x              x           x                 |  
+  |                                         x     x  x  x  x  x  x  x  x  s  x  x  x  x  x  x  x  x  x  x        x           x           x                    x                             x              x  x  x     x              |  
+  |                                      x     s  x  x  x  x  x  x  x  x           x           x           x     x              x           x              x                                   x                    x  x  x           |  
+  |                                   x              x  x        x        x        x              x           x  x                 x           x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x                          x        |  
+  |                                x              x        x        x        x     x                 x           x  s                 x              x                                               x                          x  s  |  
+  |                             x              x              x        x        x  x                    x        x                       x        x                                                     x                             |  
+  |                          x              x                    x        x     x  x                       x     x                          x  x                                                           x                          |  
+  |                       x              x                          x        x  x  x                          x  x  x  x  x  x  x  x  x  x  x  x  x  x                                                        x                       |  
+  |                    x              x                                x        x     x                          x                       x        x     x                                                        x                    |  
+  |                 x              x                                      x     x  x  x                          x                    x              x     x                                                        x                 |  
+  |              x              x                                            x  x  x  x                          x                 x                    x     x                                                        x              |  
+  |           x              x                                                  x  x  x                          x              x                          x     x                                                        x  x        |  
+  |           x           x                                                     x  x  x                          x           x                                x     x                                                        x  s     |  
+  |           x        x                                                        x  x  x                          x        x                                      x     x                                                              |  
+  |           x     x                                                           x  x  x                          x     x                                            x     x                                                           |  
+  |           x  x                                                              x  x  x                          x  x                                                  x     x                                                        |  
+  |           x                                                                 x  x  x                          x                                                        x     x                                                     |  
+  |        x                                                                    x  x  x                       x                                                              x     x                                                  |  
+  |        x                                                                    x  x  x                    x                                                                    x  x  x                                               |  
+  |        x                                                                    x  x  x                 x                                                                             x  x                                            |  
+  |        x                                                                    x  x  x                 x                                                                                x  s                                         |  
+  |        x                                                                    x  x  x  x              x                                                                                                                             |  
+  |        x                                                                    x  x     x  x           s                                                                                                                             |  
+  |        x                                                                    x  x        s                                                                                                                                         |  
+  |        x                                                                    x  x                                                                                                                                                  |  
+  |     x  x                                                                    x  x                                                                                                                                                  |  
+  |     x  x                                                                    x  x                                                                                                                                                  |  
+  |     x  x                                                                    x  x                                                                                                                                                  |  
+  |     x  x                                                                    x  x                                                                                                                                                  |  
+  |     x  x                                                                    x  x                                                                                                                                                  |  
+  |     x                                                                       x  x                                                                                                                                                  |  
+  |  x  x                                                                       x  x                                                                                                                                                  |  
+  |  s                                                                          x  x                                                                                                                                                  |  
+  |                                                                             x  x                                                                                                                                                  |  
+  |                                                                             x  x                                                                                                                                                  |  
+  |                                                                             x  x                                                                                                                                                  |  
+  |                                                                             x  x                                                                                                                                                  |  
+  |                                                                             x  x                                                                                                                                                  |  
+  |                                                                             x  x                                                                                                                                                  |  
+  |                                                                                x                                                                                                                                                  |  
+  |                                                                                s                                                                                                                                                  |  
+  |                                                                                                                                                                                                                                   |  
+  |                                                                                                                                                                                                                                   |  
+  +  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  +  
 BestFirst
 [(19, 0), (33, 0), (1, 1), (62, 1), (1, 7), (27, 17), (57, 25), (15, 27), (23, 33), (14, 34), (37, 36), (74, 36), (73, 44), (61, 52), (33, 54), (29, 55), (0, 64), (26, 72)]
 
-+---------------------------------------------------------------------------+
-|                   s             s                                         |
-| s                 xx           xx                            s            |
-| xx                x x         x x                           xx            |
-| x x               x  x       x  x                          x x            |
-| x  x              x   x     x   x                         x  x            |
-| x   x             x    x   x    x                        x   x            |
-| x    x            x     x x     x                       x    x            |
-| sxxxxxxxxxxxxxxx  x      x      x                      x     x            |
-| xx     x        x x     xx      x                     x      x            |
-| x x     x        xx    x x      x                    x       x            |
-| x  x     x        x   x  x      x                   x        x            |
-| x   x     x       xx x   x      x                  x         x            |
-| x    x     x      x x    x      x                 x          x            |
-| x     x     x     xx x   x      x                x           x            |
-| x      x     x    x   x  x      x               x            x            |
-| x       x     x  xx    x x      x              x             x            |
-| x        x     xx x     xx      x             x              x            |
-| x         x    xx x      xsxxxxxxxxxxxxxxxxxxx               x            |
-| x          x  x  xx      xxx    x           x x              x            |
-| x           xx    x      x xx   x          x   x             x            |
-| x           xx    xx     x  xx  x         x     x            x            |
-| x          x  x   x x    x   xx x        x       x           x            |
-| x         x    x  x  x   x    xxx       x         x          x            |
-| x        x      x x   x  x     xx      x           x         x            |
-| x       x        xx    x x      xx    x             x        x            |
-| x      x          x     xx      xxx  x               x  sxxxxxx           |
-| x     x           xx     x      x xxx                 x  x  x  x          |
-| x    x        sxxxxxxxxxxxxx    x  xx                  x  xx    x         |
-|  x  x          x  x  x   x xx   x x xx                  x xx     x        |
-|   xx            x x   x  x  xx  xx   xx                  x  x     x       |
-|   xx             xx    x x  x x x     xx                x x  x     x      |
-|  x  x             x     xx  x  xx      xx              x   x  x     x     |
-| x    x            xx     x  x  xx       xx            x     x  x     x    |
-|x      x       xxxxxxxxs  xx x x xx       xx          x       x  x     x   |
-|x       x     sxxxxxxxx   x xxx  x x       xx        x         x  x     x  |
-|x        x         x   x  x  x   x  x       xx      x           x  x     x |
-|x         x        x    xxxxxxxxxxxxxs       xx    x             x  xxxxxxs|
-|x          x       x      xx x x x            xx  x               x        |
-|x           x      x      x  x  xx             xxx                 x       |
-|x            x     x     xx  x   x              xx                  x      |
-|x             x    x    x x  x   xx            x xx                  x     |
-|x              x   x   x  x  x   x x          x   xx                  x    |
-|x               x  x  x   x  x   x  x        x     xx                  x   |
-|x                x x x    x  x   x   x      x       xx                  x  |
-|x                 xxx     x  x   x    x    x         xxxxxxxxxxxxxxxxxxxxs |
-|x                  x      x  x   x     x  x           x                    |
-|x                 xxx     x  x   x      xx             x                   |
-|x                x x x    x  x   x      xx              x                  |
-|x               x  x  x   x  x   x     x  x              x                 |
-|x              x   x   x  x  x   x    x    x              x                |
-|x             x    x    x x  x   x   x      x              x               |
-|x            x     x     xx  x   x  x        x              x              |
-|x           x      x      x  x   x x          xxxxxxxxxxxxxxxs             |
-|x          x       x      xx x   xx                                        |
-|x         x        x      x xx   s                                         |
-|x        x         x      x  s                                             |
-|x       x          x      x                                                |
-|x      x           x      x                                                |
-|x     x            x      x                                                |
-|x    x             x      x                                                |
-|x   x              x      x                                                |
-|x  x               x      x                                                |
-|x x                x      x                                                |
-|xx                 x      x                                                |
-|s                  x      x                                                |
-|                   x      x                                                |
-|                    x     x                                                |
-|                     x    x                                                |
-|                      x   x                                                |
-|                       x  x                                                |
-|                        x x                                                |
-|                         xx                                                |
-|                          s                                                |
-|                                                                           |
-|                                                                           |
-+---------------------------------------------------------------------------+
+  +  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  +  
+  |                                                           s                                         s                                                                                                                             |  
+  |     s                                                     x  x                                   x  x                                                                                      s                                      |  
+  |     x  x                                                  x     x                             x     x                                                                                   x  x                                      |  
+  |     x     x                                               x        x                       x        x                                                                                x     x                                      |  
+  |     x        x                                            x           x                 x           x                                                                             x        x                                      |  
+  |     x           x                                         x              x           x              x                                                                          x           x                                      |  
+  |     x              x                                      x                 x     x                 x                                                                       x              x                                      |  
+  |     s  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x        x                    x                    x                                                                    x                 x                                      |  
+  |     x  x                 x                          x     x                 x  x                    x                                                                 x                    x                                      |  
+  |     x     x                 x                          x  x              x     x                    x                                                              x                       x                                      |  
+  |     x        x                 x                          x           x        x                    x                                                           x                          x                                      |  
+  |     x           x                 x                       x  x     x           x                    x                                                        x                             x                                      |  
+  |     x              x                 x                    x     x              x                    x                                                     x                                x                                      |  
+  |     x                 x                 x                 x  x     x           x                    x                                                  x                                   x                                      |  
+  |     x                    x                 x              x           x        x                    x                                               x                                      x                                      |  
+  |     x                       x                 x        x  x              x     x                    x                                            x                                         x                                      |  
+  |     x                          x                 x  x     x                 x  x                    x                                         x                                            x                                      |  
+  |     x                             x              x  x     x                    x  s  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x                                               x                                      |  
+  |     x                                x        x        x  x                    x  x  x              x                                   x     x                                            x                                      |  
+  |     x                                   x  x              x                    x     x  x           x                                x           x                                         x                                      |  
+  |     x                                   x  x              x  x                 x        x  x        x                             x                 x                                      x                                      |  
+  |     x                                x        x           x     x              x           x  x     x                          x                       x                                   x                                      |  
+  |     x                             x              x        x        x           x              x  x  x                       x                             x                                x                                      |  
+  |     x                          x                    x     x           x        x                 x  x                    x                                   x                             x                                      |  
+  |     x                       x                          x  x              x     x                    x  x              x                                         x                          x                                      |  
+  |     x                    x                                x                 x  x                    x  x  x        x                                               x        s  x  x  x  x  x  x                                   |  
+  |     x                 x                                   x  x                 x                    x     x  x  x                                                     x        x        x        x                                |  
+  |     x              x                          s  x  x  x  x  x  x  x  x  x  x  x  x  x              x        x  x                                                        x        x  x              x                             |  
+  |        x        x                                x        x        x           x     x  x           x     x     x  x                                                        x     x  x                 x                          |  
+  |           x  x                                      x     x           x        x        x  x        x  x           x  x                                                        x        x                 x                       |  
+  |           x  x                                         x  x              x     x        x     x     x                 x  x                                                  x     x        x                 x                    |  
+  |        x        x                                         x                 x  x        x        x  x                    x  x                                            x           x        x                 x                 |  
+  |     x              x                                      x  x                 x        x        x  x                       x  x                                      x                 x        x                 x              |  
+  |  x                    x                       x  x  x  x  x  x  x  x  s        x  x     x     x     x  x                       x  x                                x                       x        x                 x           |  
+  |  x                       x                 s  x  x  x  x  x  x  x  x           x     x  x  x        x     x                       x  x                          x                             x        x                 x        |  
+  |  x                          x                             x           x        x        x           x        x                       x  x                    x                                   x        x                 x     |  
+  |  x                             x                          x              x  x  x  x  x  x  x  x  x  x  x  x  x  s                       x  x              x                                         x        x  x  x  x  x  x  s  |  
+  |  x                                x                       x                    x  x     x     x     x                                      x  x        x                                               x                          |  
+  |  x                                   x                    x                    x        x        x  x                                         x  x  x                                                     x                       |  
+  |  x                                      x                 x                 x  x        x           x                                            x  x                                                        x                    |  
+  |  x                                         x              x              x     x        x           x  x                                      x     x  x                                                        x                 |  
+  |  x                                            x           x           x        x        x           x     x                                x           x  x                                                        x              |  
+  |  x                                               x        x        x           x        x           x        x                          x                 x  x                                                        x           |  
+  |  x                                                  x     x     x              x        x           x           x                    x                       x  x                                                        x        |  
+  |  x                                                     x  x  x                 x        x           x              x              x                             x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  s     |  
+  |  x                                                        x                    x        x           x                 x        x                                   x                                                              |  
+  |  x                                                     x  x  x                 x        x           x                    x  x                                         x                                                           |  
+  |  x                                                  x     x     x              x        x           x                    x  x                                            x                                                        |  
+  |  x                                               x        x        x           x        x           x                 x        x                                            x                                                     |  
+  |  x                                            x           x           x        x        x           x              x              x                                            x                                                  |  
+  |  x                                         x              x              x     x        x           x           x                    x                                            x                                               |  
+  |  x                                      x                 x                 x  x        x           x        x                          x                                            x                                            |  
+  |  x                                   x                    x                    x        x           x     x                                x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  s                                         |  
+  |  x                                x                       x                    x  x     x           x  x                                                                                                                          |  
+  |  x                             x                          x                    x     x  x           s                                                                                                                             |  
+  |  x                          x                             x                    x        s                                                                                                                                         |  
+  |  x                       x                                x                    x                                                                                                                                                  |  
+  |  x                    x                                   x                    x                                                                                                                                                  |  
+  |  x                 x                                      x                    x                                                                                                                                                  |  
+  |  x              x                                         x                    x                                                                                                                                                  |  
+  |  x           x                                            x                    x                                                                                                                                                  |  
+  |  x        x                                               x                    x                                                                                                                                                  |  
+  |  x     x                                                  x                    x                                                                                                                                                  |  
+  |  x  x                                                     x                    x                                                                                                                                                  |  
+  |  s                                                        x                    x                                                                                                                                                  |  
+  |                                                           x                    x                                                                                                                                                  |  
+  |                                                              x                 x                                                                                                                                                  |  
+  |                                                                 x              x                                                                                                                                                  |  
+  |                                                                    x           x                                                                                                                                                  |  
+  |                                                                       x        x                                                                                                                                                  |  
+  |                                                                          x     x                                                                                                                                                  |  
+  |                                                                             x  x                                                                                                                                                  |  
+  |                                                                                s                                                                                                                                                  |  
+  |                                                                                                                                                                                                                                   |  
+  |                                                                                                                                                                                                                                   |  
+  +  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  +  
 BiAStarFinder
 [(19, 0), (33, 0), (1, 1), (62, 1), (1, 7), (27, 17), (57, 25), (15, 27), (23, 33), (14, 34), (37, 36), (74, 36), (73, 44), (61, 52), (33, 54), (29, 55), (0, 64), (26, 72)]
 
-+---------------------------------------------------------------------------+
-|                   s             s                                         |
-| s                 x            x                             s            |
-|  x                x            x                            xx            |
-|   x               x            x                           x x            |
-|   x               x            x                          x  x            |
-|   x               x            x                         x  x             |
-|   x               x            x                        x  x              |
-| s x               x            x                       x  x               |
-|  xx               x           x                       x   x               |
-|   x               x           x                      x    x               |
-|   xx              x           x                     x     x               |
-|   x x             x           x                    x      x               |
-|   x  x            x           x                   x       x               |
-|   x   x           x           x                  x        x               |
-|   x    x          x           x                 x         x               |
-|   x     x         x          xx                x          x               |
-|   x      x        x         xx                x           x               |
-|    x      x       x       sx x               x            x               |
-|     x      x      x       xxxx              x             x               |
-|      x      x     x      x   x             x              x               |
-|       x      xxxxxxxxxxxxxx  xx           x               x               |
-|        x         xx    x   x x x         x                x               |
-|         x         x   x     x   x       x                 x               |
-|          x        xx x     x x   x     x                  x               |
-|           x       xxx     x   x   x   x                   x               |
-|            x      xxx    x     x   x x                  sxx               |
-|             x     x  x  x       x   xxxxxxxxxxxxxxxxxx    x               |
-|              xsx xx   xx         x x  x               x   xxxx            |
-|               x x x   xx          xx  x                x  x x xxx         |
-|                x xx  x  x          x   x                xx   x   x        |
-|               x x xxxxxxxx         xx   x               xx    x   x       |
-|               x  xxx    xxx        x x   x             x  x    x   x      |
-|              x    x      xxx       x  x   x           x    x    x   x     |
-|             x    xxxxxs   xxxxxxx  x   x   x         x      x    xxx x    |
-|            x sxxxxxxx        x   x x    x   x       x       x       xxx   |
-|           x     x   xx        x   xx     x   xxxxxxxxxxxxxxxxxx        x  |
-|          x     x     xx        x   xs    x        x            x        xs|
-|         x     x       xx        x  x      x      x              x         |
-|        x     x         xx        x x       x    x                x        |
-|       x     x           xx        xxxxxxxxxxxxxx                  x       |
-|      x     x             xx        x          x x                  x      |
-|     x     x              xx        x         x   x                  x     |
-|    x     x               xx        x        x     x                  x    |
-|   x     x                xx        x       x       x                  xx  |
-|   x    x                 xx        x      x         x                   s |
-|   x   x                  xx        x     x           x                    |
-|   x  x                   xx        x    x             x                   |
-|   x x                    xx        x   x               x                  |
-|   xx                     xx        x  x                 x                 |
-|  xx                      xx       x  x                   x                |
-|  x                       xx      x  x                     x               |
-|  x                       xx     x  x                       x              |
-|  x                       xx     x x                         s             |
-|  x                       xx     xx                                        |
-|  x                       x x    s                                         |
-|  x                       x  s                                             |
-|  x                       x                                                |
-| x                        x                                                |
-| x                        x                                                |
-| x                        x                                                |
-| x                        x                                                |
-| x                        x                                                |
-| x                        x                                                |
-| x                        x                                                |
-|s                         x                                                |
-|                          x                                                |
-|                          x                                                |
-|                          x                                                |
-|                          x                                                |
-|                          x                                                |
-|                          x                                                |
-|                          x                                                |
-|                          s                                                |
-|                                                                           |
-|                                                                           |
-+---------------------------------------------------------------------------+
+  +  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  +  
+  |                                                           s                                         s                                                                                                                             |  
+  |     s                                                     x                                      x                                                                                         s                                      |  
+  |        x                                                  x                                      x                                                                                      x  x                                      |  
+  |           x                                               x                                      x                                                                                   x     x                                      |  
+  |           x                                               x                                      x                                                                                x        x                                      |  
+  |           x                                               x                                      x                                                                             x        x                                         |  
+  |           x                                               x                                      x                                                                          x        x                                            |  
+  |     s     x                                               x                                      x                                                                       x        x                                               |  
+  |        x  x                                               x                                   x                                                                       x           x                                               |  
+  |           x                                               x                                   x                                                                    x              x                                               |  
+  |           x  x                                            x                                   x                                                                 x                 x                                               |  
+  |           x     x                                         x                                   x                                                              x                    x                                               |  
+  |           x        x                                      x                                   x                                                           x                       x                                               |  
+  |           x           x                                   x                                   x                                                        x                          x                                               |  
+  |           x              x                                x                                   x                                                     x                             x                                               |  
+  |           x                 x                             x                                x  x                                                  x                                x                                               |  
+  |           x                    x                          x                             x  x                                                  x                                   x                                               |  
+  |              x                    x                       x                       s  x     x                                               x                                      x                                               |  
+  |                 x                    x                    x                       x  x  x  x                                            x                                         x                                               |  
+  |                    x                    x                 x                    x           x                                         x                                            x                                               |  
+  |                       x                    x  x  x  x  x  x  x  x  x  x  x  x  x  x        x  x                                   x                                               x                                               |  
+  |                          x                             x  x              x           x     x     x                             x                                                  x                                               |  
+  |                             x                             x           x                 x           x                       x                                                     x                                               |  
+  |                                x                          x  x     x                 x     x           x                 x                                                        x                                               |  
+  |                                   x                       x  x  x                 x           x           x           x                                                           x                                               |  
+  |                                      x                    x  x  x              x                 x           x     x                                                        s  x  x                                               |  
+  |                                         x                 x        x        x                       x           x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x              x                                               |  
+  |                                            x  s  x     x  x           x  x                             x     x        x                                               x           x  x  x  x                                      |  
+  |                                               x     x     x           x  x                                x  x        x                                                  x        x     x     x  x  x                             |  
+  |                                                  x     x  x        x        x                                x           x                                                  x  x           x           x                          |  
+  |                                               x     x     x  x  x  x  x  x  x  x                             x  x           x                                               x  x              x           x                       |  
+  |                                               x        x  x  x              x  x  x                          x     x           x                                         x        x              x           x                    |  
+  |                                            x              x                    x  x  x                       x        x           x                                   x              x              x           x                 |  
+  |                                         x              x  x  x  x  x  s           x  x  x  x  x  x  x        x           x           x                             x                    x              x  x  x     x              |  
+  |                                      x     s  x  x  x  x  x  x  x                          x           x     x              x           x                       x                       x                       x  x  x           |  
+  |                                   x                 x           x  x                          x           x  x                 x           x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x                          x        |  
+  |                                x                 x                 x  x                          x           x  s              x                          x                                      x                          x  s  |  
+  |                             x                 x                       x  x                          x        x                    x                    x                                            x                             |  
+  |                          x                 x                             x  x                          x     x                       x              x                                                  x                          |  
+  |                       x                 x                                   x  x                          x  x  x  x  x  x  x  x  x  x  x  x  x  x                                                        x                       |  
+  |                    x                 x                                         x  x                          x                                x     x                                                        x                    |  
+  |                 x                 x                                            x  x                          x                             x           x                                                        x                 |  
+  |              x                 x                                               x  x                          x                          x                 x                                                        x              |  
+  |           x                 x                                                  x  x                          x                       x                       x                                                        x  x        |  
+  |           x              x                                                     x  x                          x                    x                             x                                                           s     |  
+  |           x           x                                                        x  x                          x                 x                                   x                                                              |  
+  |           x        x                                                           x  x                          x              x                                         x                                                           |  
+  |           x     x                                                              x  x                          x           x                                               x                                                        |  
+  |           x  x                                                                 x  x                          x        x                                                     x                                                     |  
+  |        x  x                                                                    x  x                       x        x                                                           x                                                  |  
+  |        x                                                                       x  x                    x        x                                                                 x                                               |  
+  |        x                                                                       x  x                 x        x                                                                       x                                            |  
+  |        x                                                                       x  x                 x     x                                                                             s                                         |  
+  |        x                                                                       x  x                 x  x                                                                                                                          |  
+  |        x                                                                       x     x              s                                                                                                                             |  
+  |        x                                                                       x        s                                                                                                                                         |  
+  |        x                                                                       x                                                                                                                                                  |  
+  |     x                                                                          x                                                                                                                                                  |  
+  |     x                                                                          x                                                                                                                                                  |  
+  |     x                                                                          x                                                                                                                                                  |  
+  |     x                                                                          x                                                                                                                                                  |  
+  |     x                                                                          x                                                                                                                                                  |  
+  |     x                                                                          x                                                                                                                                                  |  
+  |     x                                                                          x                                                                                                                                                  |  
+  |  s                                                                             x                                                                                                                                                  |  
+  |                                                                                x                                                                                                                                                  |  
+  |                                                                                x                                                                                                                                                  |  
+  |                                                                                x                                                                                                                                                  |  
+  |                                                                                x                                                                                                                                                  |  
+  |                                                                                x                                                                                                                                                  |  
+  |                                                                                x                                                                                                                                                  |  
+  |                                                                                x                                                                                                                                                  |  
+  |                                                                                s                                                                                                                                                  |  
+  |                                                                                                                                                                                                                                   |  
+  |                                                                                                                                                                                                                                   |  
+  +  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  +  
 BreadthFirstFinder
 [(19, 0), (33, 0), (1, 1), (62, 1), (1, 7), (27, 17), (57, 25), (15, 27), (23, 33), (14, 34), (37, 36), (74, 36), (73, 44), (61, 52), (33, 54), (29, 55), (0, 64), (26, 72)]
 
-+---------------------------------------------------------------------------+
-|                   s             s                                         |
-| s                 xx           xx                            s            |
-| xx                x x         x x                           xx            |
-| x x               x  x       x  x                          x x            |
-| x  x              x   x     x   x                         x  x            |
-| x   x             x    x   x    x                        x   x            |
-| x    x            x     x x     x                       x    x            |
-| sxxxxxxxxxxxxxxx  x      x      x                      x     x            |
-| xx     x        x x     xx      x                     x      x            |
-| x x     x        xx    x x      x                    x       x            |
-| x  x     x        x   x  x      x                   x        x            |
-| x   x     x       xx x   x      x                  x         x            |
-| x    x     x      x x    x      x                 x          x            |
-| x     x     x     xx x   x      x                x           x            |
-| x      x     x    x   x  x      x               x            x            |
-| x       x     x  xx    x x      x              x             x            |
-| x        x     xx x     xx      x             x              x            |
-| x         x    xx x      xsxxxxxxxxxxxxxxxxxxx               x            |
-| x          x  x  xx      xxx    x           x x              x            |
-| x           xx    x      x xx   x          x   x             x            |
-| x           xx    xx     x  xx  x         x     x            x            |
-| x          x  x   x x    x   xx x        x       x           x            |
-| x         x    x  x  x   x    xxx       x         x          x            |
-| x        x      x x   x  x     xx      x           x         x            |
-| x       x        xx    x x      xx    x             x        x            |
-| x      x          x     xx      xxx  x               x  sxxxxxx           |
-| x     x           xx     x      x xxx                 x  x  x  x          |
-| x    x        sxxxxxxxxxxxxx    x  xx                  x  xx    x         |
-|  x  x          x  x  x   x xx   x x xx                  x xx     x        |
-|   xx            x x   x  x  xx  xx   xx                  x  x     x       |
-|   xx             xx    x x  x x x     xx                x x  x     x      |
-|  x  x             x     xx  x  xx      xx              x   x  x     x     |
-| x    x            xx     x  x  xx       xx            x     x  x     x    |
-|x      x       xxxxxxxxs  xx x x xx       xx          x       x  x     x   |
-|x       x     sxxxxxxxx   x xxx  x x       xx        x         x  x     x  |
-|x        x         x   x  x  x   x  x       xx      x           x  x     x |
-|x         x        x    xxxxxxxxxxxxxs       xx    x             x  xxxxxxs|
-|x          x       x      xx x x x            xx  x               x        |
-|x           x      x      x  x  xx             xxx                 x       |
-|x            x     x     xx  x   x              xx                  x      |
-|x             x    x    x x  x   xx            x xx                  x     |
-|x              x   x   x  x  x   x x          x   xx                  x    |
-|x               x  x  x   x  x   x  x        x     xx                  x   |
-|x                x x x    x  x   x   x      x       xx                  x  |
-|x                 xxx     x  x   x    x    x         xxxxxxxxxxxxxxxxxxxxs |
-|x                  x      x  x   x     x  x           x                    |
-|x                 xxx     x  x   x      xx             x                   |
-|x                x x x    x  x   x      xx              x                  |
-|x               x  x  x   x  x   x     x  x              x                 |
-|x              x   x   x  x  x   x    x    x              x                |
-|x             x    x    x x  x   x   x      x              x               |
-|x            x     x     xx  x   x  x        x              x              |
-|x           x      x      x  x   x x          xxxxxxxxxxxxxxxs             |
-|x          x       x      xx x   xx                                        |
-|x         x        x      x xx   s                                         |
-|x        x         x      x  s                                             |
-|x       x          x      x                                                |
-|x      x           x      x                                                |
-|x     x            x      x                                                |
-|x    x             x      x                                                |
-|x   x              x      x                                                |
-|x  x               x      x                                                |
-|x x                x      x                                                |
-|xx                 x      x                                                |
-|s                  x      x                                                |
-|                   x      x                                                |
-|                    x     x                                                |
-|                     x    x                                                |
-|                      x   x                                                |
-|                       x  x                                                |
-|                        x x                                                |
-|                         xx                                                |
-|                          s                                                |
-|                                                                           |
-|                                                                           |
-+---------------------------------------------------------------------------+
+  +  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  +  
+  |                                                           s                                         s                                                                                                                             |  
+  |     s                                                     x  x                                   x  x                                                                                      s                                      |  
+  |     x  x                                                  x     x                             x     x                                                                                   x  x                                      |  
+  |     x     x                                               x        x                       x        x                                                                                x     x                                      |  
+  |     x        x                                            x           x                 x           x                                                                             x        x                                      |  
+  |     x           x                                         x              x           x              x                                                                          x           x                                      |  
+  |     x              x                                      x                 x     x                 x                                                                       x              x                                      |  
+  |     s  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x        x                    x                    x                                                                    x                 x                                      |  
+  |     x  x                 x                          x     x                 x  x                    x                                                                 x                    x                                      |  
+  |     x     x                 x                          x  x              x     x                    x                                                              x                       x                                      |  
+  |     x        x                 x                          x           x        x                    x                                                           x                          x                                      |  
+  |     x           x                 x                       x  x     x           x                    x                                                        x                             x                                      |  
+  |     x              x                 x                    x     x              x                    x                                                     x                                x                                      |  
+  |     x                 x                 x                 x  x     x           x                    x                                                  x                                   x                                      |  
+  |     x                    x                 x              x           x        x                    x                                               x                                      x                                      |  
+  |     x                       x                 x        x  x              x     x                    x                                            x                                         x                                      |  
+  |     x                          x                 x  x     x                 x  x                    x                                         x                                            x                                      |  
+  |     x                             x              x  x     x                    x  s  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x                                               x                                      |  
+  |     x                                x        x        x  x                    x  x  x              x                                   x     x                                            x                                      |  
+  |     x                                   x  x              x                    x     x  x           x                                x           x                                         x                                      |  
+  |     x                                   x  x              x  x                 x        x  x        x                             x                 x                                      x                                      |  
+  |     x                                x        x           x     x              x           x  x     x                          x                       x                                   x                                      |  
+  |     x                             x              x        x        x           x              x  x  x                       x                             x                                x                                      |  
+  |     x                          x                    x     x           x        x                 x  x                    x                                   x                             x                                      |  
+  |     x                       x                          x  x              x     x                    x  x              x                                         x                          x                                      |  
+  |     x                    x                                x                 x  x                    x  x  x        x                                               x        s  x  x  x  x  x  x                                   |  
+  |     x                 x                                   x  x                 x                    x     x  x  x                                                     x        x        x        x                                |  
+  |     x              x                          s  x  x  x  x  x  x  x  x  x  x  x  x  x              x        x  x                                                        x        x  x              x                             |  
+  |        x        x                                x        x        x           x     x  x           x     x     x  x                                                        x     x  x                 x                          |  
+  |           x  x                                      x     x           x        x        x  x        x  x           x  x                                                        x        x                 x                       |  
+  |           x  x                                         x  x              x     x        x     x     x                 x  x                                                  x     x        x                 x                    |  
+  |        x        x                                         x                 x  x        x        x  x                    x  x                                            x           x        x                 x                 |  
+  |     x              x                                      x  x                 x        x        x  x                       x  x                                      x                 x        x                 x              |  
+  |  x                    x                       x  x  x  x  x  x  x  x  s        x  x     x     x     x  x                       x  x                                x                       x        x                 x           |  
+  |  x                       x                 s  x  x  x  x  x  x  x  x           x     x  x  x        x     x                       x  x                          x                             x        x                 x        |  
+  |  x                          x                             x           x        x        x           x        x                       x  x                    x                                   x        x                 x     |  
+  |  x                             x                          x              x  x  x  x  x  x  x  x  x  x  x  x  x  s                       x  x              x                                         x        x  x  x  x  x  x  s  |  
+  |  x                                x                       x                    x  x     x     x     x                                      x  x        x                                               x                          |  
+  |  x                                   x                    x                    x        x        x  x                                         x  x  x                                                     x                       |  
+  |  x                                      x                 x                 x  x        x           x                                            x  x                                                        x                    |  
+  |  x                                         x              x              x     x        x           x  x                                      x     x  x                                                        x                 |  
+  |  x                                            x           x           x        x        x           x     x                                x           x  x                                                        x              |  
+  |  x                                               x        x        x           x        x           x        x                          x                 x  x                                                        x           |  
+  |  x                                                  x     x     x              x        x           x           x                    x                       x  x                                                        x        |  
+  |  x                                                     x  x  x                 x        x           x              x              x                             x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  s     |  
+  |  x                                                        x                    x        x           x                 x        x                                   x                                                              |  
+  |  x                                                     x  x  x                 x        x           x                    x  x                                         x                                                           |  
+  |  x                                                  x     x     x              x        x           x                    x  x                                            x                                                        |  
+  |  x                                               x        x        x           x        x           x                 x        x                                            x                                                     |  
+  |  x                                            x           x           x        x        x           x              x              x                                            x                                                  |  
+  |  x                                         x              x              x     x        x           x           x                    x                                            x                                               |  
+  |  x                                      x                 x                 x  x        x           x        x                          x                                            x                                            |  
+  |  x                                   x                    x                    x        x           x     x                                x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  s                                         |  
+  |  x                                x                       x                    x  x     x           x  x                                                                                                                          |  
+  |  x                             x                          x                    x     x  x           s                                                                                                                             |  
+  |  x                          x                             x                    x        s                                                                                                                                         |  
+  |  x                       x                                x                    x                                                                                                                                                  |  
+  |  x                    x                                   x                    x                                                                                                                                                  |  
+  |  x                 x                                      x                    x                                                                                                                                                  |  
+  |  x              x                                         x                    x                                                                                                                                                  |  
+  |  x           x                                            x                    x                                                                                                                                                  |  
+  |  x        x                                               x                    x                                                                                                                                                  |  
+  |  x     x                                                  x                    x                                                                                                                                                  |  
+  |  x  x                                                     x                    x                                                                                                                                                  |  
+  |  s                                                        x                    x                                                                                                                                                  |  
+  |                                                           x                    x                                                                                                                                                  |  
+  |                                                              x                 x                                                                                                                                                  |  
+  |                                                                 x              x                                                                                                                                                  |  
+  |                                                                    x           x                                                                                                                                                  |  
+  |                                                                       x        x                                                                                                                                                  |  
+  |                                                                          x     x                                                                                                                                                  |  
+  |                                                                             x  x                                                                                                                                                  |  
+  |                                                                                s                                                                                                                                                  |  
+  |                                                                                                                                                                                                                                   |  
+  |                                                                                                                                                                                                                                   |  
+  +  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  +  
 DijkstraFinder
 [(19, 0), (33, 0), (1, 1), (62, 1), (1, 7), (27, 17), (57, 25), (15, 27), (23, 33), (14, 34), (37, 36), (74, 36), (73, 44), (61, 52), (33, 54), (29, 55), (0, 64), (26, 72)]
 
-+---------------------------------------------------------------------------+
-|                   s             s                                         |
-| s                 x             x                            s            |
-| x                 xx           xx                            x            |
-| xx                x x         x x                            x            |
-| x x               x  x       x  x                           xx            |
-| x  x              x   x     x   x                          x x            |
-| x   x             x    x   x    x                         x  x            |
-| sxxxxxx           x     x x    x                         x   x            |
-|  xx   xx          x      x    x                         x   x             |
-|   xx   xxxxxxxxx  x      x    x                        x   x              |
-|   x x   x       xxx      x    x                       x    x              |
-|   x  x   x        x      x    x                      x     x              |
-|   x   x   x       xx    xx    x                     x      x              |
-|   x    x   x      x x  x x    x                    x       x              |
-|   x     x   x     x  xx  x    x                   x        x              |
-|   x      x   x    x  xx  x    x                  x         x              |
-|   x       x   x   x x  x x   x                  x          x              |
-|    x       x   x  xx    xxsxxxxxx              x          x               |
-|    x        x   x x      x  xx   x            x           x               |
-|    x         x   xx      xx  x    xxxxxxxx   x            x               |
-|    x          x x x      x x xx           xxxxxx          x               |
-|    x           x  xx     x  xx x           x    x         x               |
-|    x          x x x x    x   x  x         x      x        x               |
-|    x         x   xx  x   x   xx  x       x        x       x               |
-|    x        x     x   x  x   x x  x     x          x      x               |
-|    x       x      xx   x x   x  x  x   x            x   sxxx              |
-|    x      x       x x   xx   x   x  x x              x    x x             |
-|    x     x    sxxxxxxx   x   x    x  x                x  x x x            |
-|    x    x       x x  xx  x   x     xx x                xx   x xxx         |
-|    x   x         xx   xxxxxxxx     xx  x               xx    x   x        |
-|     x x           x     xx   x     x x  x             x  x    x   x       |
-|      x            xx     x  x x    x  x  x           x    x    x   x      |
-|     x x           x x    xxx   x   x   x  x         x      x    x   x     |
-|    x   x       xxxxxxxs  xxx    x  x    x  x       x        x    xxx x    |
-|   x     x    sxxxxxxx xxxxxxx    x x     x  x     x          x      x x   |
-|   x      x        x     xx   x    xx      x  x   x            x      x x  |
-|   x       x       x    x x    xxxxxxs      x  x x              x      xxxs|
-|   x        x      x   x  x     x   x        x  x                x         |
-|   x         x     x  x   x      x  x         xx x                x        |
-|   x          x    x x    x       xx          xx  x                x       |
-|   x           x   xx     xx       x         x  x  x                x      |
-|   x            x  x      xx       xx       x    x  xxxxxx           x     |
-|   x             xxx      xx       x x     x      x       xxxxxxxx    x    |
-|   x             xxx      xx       x  x   x        x              x    x   |
-|   x            x  x      xx       x   x x          x              xxxxxxs |
-|   x           x   xx     xx       x    x            x                     |
-|   x          x    x x    xx       x   x x            x                    |
-|   x         x     x  x   xx      x   x   x            x                   |
-|   x        x      x   x  x x    x   x     x            x                  |
-|  x        x       x    x x  x   x  x       xx           x                 |
-|  x       x        x     xx  x   x x          xxxxxxxx    x                |
-|  x      x         x      x  x   xx                   x    x               |
-|  x     x          x      xx x   x                     xxxxxxs             |
-|  x    x           x      x xx   x                                         |
-|  x    x           x      x  x   s                                         |
-|  x    x           x      x  s                                             |
-|  x    x           x      x                                                |
-| x    x            x      x                                                |
-|x    x             x      x                                                |
-|x   x              x      x                                                |
-|x  x               x      x                                                |
-|x x                x      x                                                |
-|xx                 x      x                                                |
-|x                  x      x                                                |
-|s                  x      x                                                |
-|                    x     x                                                |
-|                     x    x                                                |
-|                      x   x                                                |
-|                       x  x                                                |
-|                        x x                                                |
-|                         xx                                                |
-|                          x                                                |
-|                          s                                                |
-|                                                                           |
-|                                                                           |
-+---------------------------------------------------------------------------+
+  +  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  +  
+  |                                                           s                                         s                                                                                                                             |  
+  |     s                                                     x                                         x                                                                                      s                                      |  
+  |     x                                                     x  x                                   x  x                                                                                      x                                      |  
+  |     x  x                                                  x     x                             x     x                                                                                      x                                      |  
+  |     x     x                                               x        x                       x        x                                                                                   x  x                                      |  
+  |     x        x                                            x           x                 x           x                                                                                x     x                                      |  
+  |     x           x                                         x              x           x              x                                                                             x        x                                      |  
+  |     s  x  x  x  x  x  x                                   x                 x     x              x                                                                             x           x                                      |  
+  |        x  x           x  x                                x                    x              x                                                                             x           x                                         |  
+  |           x  x           x  x  x  x  x  x  x  x  x        x                    x              x                                                                          x           x                                            |  
+  |           x     x           x                       x  x  x                    x              x                                                                       x              x                                            |  
+  |           x        x           x                          x                    x              x                                                                    x                 x                                            |  
+  |           x           x           x                       x  x              x  x              x                                                                 x                    x                                            |  
+  |           x              x           x                    x     x        x     x              x                                                              x                       x                                            |  
+  |           x                 x           x                 x        x  x        x              x                                                           x                          x                                            |  
+  |           x                    x           x              x        x  x        x              x                                                        x                             x                                            |  
+  |           x                       x           x           x     x        x     x           x                                                        x                                x                                            |  
+  |              x                       x           x        x  x              x  x  s  x  x  x  x  x  x                                            x                                x                                               |  
+  |              x                          x           x     x                    x        x  x           x                                      x                                   x                                               |  
+  |              x                             x           x  x                    x  x        x              x  x  x  x  x  x  x  x           x                                      x                                               |  
+  |              x                                x     x     x                    x     x     x  x                                   x  x  x  x  x  x                                x                                               |  
+  |              x                                   x        x  x                 x        x  x     x                                   x              x                             x                                               |  
+  |              x                                x     x     x     x              x           x        x                             x                    x                          x                                               |  
+  |              x                             x           x  x        x           x           x  x        x                       x                          x                       x                                               |  
+  |              x                          x                 x           x        x           x     x        x                 x                                x                    x                                               |  
+  |              x                       x                    x  x           x     x           x        x        x           x                                      x           s  x  x  x                                            |  
+  |              x                    x                       x     x           x  x           x           x        x     x                                            x              x     x                                         |  
+  |              x                 x              s  x  x  x  x  x  x  x           x           x              x        x                                                  x        x     x     x                                      |  
+  |              x              x                       x     x        x  x        x           x                 x  x     x                                                  x  x           x     x  x  x                             |  
+  |              x           x                             x  x           x  x  x  x  x  x  x  x                 x  x        x                                               x  x              x           x                          |  
+  |                 x     x                                   x                 x  x           x                 x     x        x                                         x        x              x           x                       |  
+  |                    x                                      x  x                 x        x     x              x        x        x                                   x              x              x           x                    |  
+  |                 x     x                                   x     x              x  x  x           x           x           x        x                             x                    x              x           x                 |  
+  |              x           x                       x  x  x  x  x  x  x  s        x  x  x              x        x              x        x                       x                          x              x  x  x     x              |  
+  |           x                 x              s  x  x  x  x  x  x  x     x  x  x  x  x  x  x              x     x                 x        x                 x                                x                    x     x           |  
+  |           x                    x                          x                 x  x           x              x  x                    x        x           x                                      x                    x     x        |  
+  |           x                       x                       x              x     x              x  x  x  x  x  x  s                    x        x     x                                            x                    x  x  x  s  |  
+  |           x                          x                    x           x        x                 x           x                          x        x                                                  x                             |  
+  |           x                             x                 x        x           x                    x        x                             x  x     x                                                  x                          |  
+  |           x                                x              x     x              x                       x  x                                x  x        x                                                  x                       |  
+  |           x                                   x           x  x                 x  x                       x                             x        x        x                                                  x                    |  
+  |           x                                      x        x                    x  x                       x  x                       x              x        x  x  x  x  x  x                                   x                 |  
+  |           x                                         x  x  x                    x  x                       x     x                 x                    x                       x  x  x  x  x  x  x  x              x              |  
+  |           x                                         x  x  x                    x  x                       x        x           x                          x                                            x              x           |  
+  |           x                                      x        x                    x  x                       x           x     x                                x                                            x  x  x  x  x  x  s     |  
+  |           x                                   x           x  x                 x  x                       x              x                                      x                                                                 |  
+  |           x                                x              x     x              x  x                       x           x     x                                      x                                                              |  
+  |           x                             x                 x        x           x  x                    x           x           x                                      x                                                           |  
+  |           x                          x                    x           x        x     x              x           x                 x                                      x                                                        |  
+  |        x                          x                       x              x     x        x           x        x                       x  x                                   x                                                     |  
+  |        x                       x                          x                 x  x        x           x     x                                x  x  x  x  x  x  x  x              x                                                  |  
+  |        x                    x                             x                    x        x           x  x                                                           x              x                                               |  
+  |        x                 x                                x                    x  x     x           x                                                                 x  x  x  x  x  x  s                                         |  
+  |        x              x                                   x                    x     x  x           x                                                                                                                             |  
+  |        x              x                                   x                    x        x           s                                                                                                                             |  
+  |        x              x                                   x                    x        s                                                                                                                                         |  
+  |        x              x                                   x                    x                                                                                                                                                  |  
+  |     x              x                                      x                    x                                                                                                                                                  |  
+  |  x              x                                         x                    x                                                                                                                                                  |  
+  |  x           x                                            x                    x                                                                                                                                                  |  
+  |  x        x                                               x                    x                                                                                                                                                  |  
+  |  x     x                                                  x                    x                                                                                                                                                  |  
+  |  x  x                                                     x                    x                                                                                                                                                  |  
+  |  x                                                        x                    x                                                                                                                                                  |  
+  |  s                                                        x                    x                                                                                                                                                  |  
+  |                                                              x                 x                                                                                                                                                  |  
+  |                                                                 x              x                                                                                                                                                  |  
+  |                                                                    x           x                                                                                                                                                  |  
+  |                                                                       x        x                                                                                                                                                  |  
+  |                                                                          x     x                                                                                                                                                  |  
+  |                                                                             x  x                                                                                                                                                  |  
+  |                                                                                x                                                                                                                                                  |  
+  |                                                                                s                                                                                                                                                  |  
+  |                                                                                                                                                                                                                                   |  
+  |                                                                                                                                                                                                                                   |  
+  +  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  +  
 MinimumSpanningTree
 [(19, 0), (33, 0), (1, 1), (62, 1), (1, 7), (27, 17), (57, 25), (15, 27), (23, 33), (14, 34), (37, 36), (74, 36), (73, 44), (61, 52), (33, 54), (29, 55), (0, 64), (26, 72)]
 
-+---------------------------------------------------------------------------+
-|                   s             s                                         |
-| s                 x             x                            s            |
-| x                 xx           xx                            x            |
-| xx                x x         x x                            x            |
-| x x               x  x       x  x                           xx            |
-| x  x              x   x     x   x                          x x            |
-| x   x             x    x   x    x                         x  x            |
-| sxxxxxx           x     x x    x                         x   x            |
-|  xx   xx          x      x    x                         x   x             |
-|   xx   xxxxxxxxx  x      x    x                        x   x              |
-|   x x   x       xxx      x    x                       x    x              |
-|   x  x   x        x      x    x                      x     x              |
-|   x   x   x       xx    xx    x                     x      x              |
-|   x    x   x      x x  x x    x                    x       x              |
-|   x     x   x     x  xx  x    x                   x        x              |
-|   x      x   x    x  xx  x    x                  x         x              |
-|   x       x   x   x x  x x   x                  x          x              |
-|    x       x   x  xx    xxsxxxxxx              x          x               |
-|    x        x   x x      x  xx   x            x           x               |
-|    x         x   xx      xx  x    xxxxxxxx   x            x               |
-|    x          x x x      x x xx           xxxxxx          x               |
-|    x           x  xx     x  xx x           x    x         x               |
-|    x          x x x x    x   x  x         x      x        x               |
-|    x         x   xx  x   x   xx  x       x        x       x               |
-|    x        x     x   x  x   x x  x     x          x      x               |
-|    x       x      xx   x x   x  x  x   x            x   sxxx              |
-|    x      x       x x   xx   x   x  x x              x    x x             |
-|    x     x    sxxxxxxx   x   x    x  x                x  x x x            |
-|    x    x       x x  xx  x   x     xx x                xx   x xxx         |
-|    x   x         xx   xxxxxxxx     xx  x               xx    x   x        |
-|     x x           x     xx   x     x x  x             x  x    x   x       |
-|      x            xx     x  x x    x  x  x           x    x    x   x      |
-|     x x           x x    xxx   x   x   x  x         x      x    x   x     |
-|    x   x       xxxxxxxs  xxx    x  x    x  x       x        x    xxx x    |
-|   x     x    sxxxxxxx xxxxxxx    x x     x  x     x          x      x x   |
-|   x      x        x     xx   x    xx      x  x   x            x      x x  |
-|   x       x       x    x x    xxxxxxs      x  x x              x      xxxs|
-|   x        x      x   x  x     x   x        x  x                x         |
-|   x         x     x  x   x      x  x         xx x                x        |
-|   x          x    x x    x       xx          xx  x                x       |
-|   x           x   xx     xx       x         x  x  x                x      |
-|   x            x  x      xx       xx       x    x  xxxxxx           x     |
-|   x             xxx      xx       x x     x      x       xxxxxxxx    x    |
-|   x             xxx      xx       x  x   x        x              x    x   |
-|   x            x  x      xx       x   x x          x              xxxxxxs |
-|   x           x   xx     xx       x    x            x                     |
-|   x          x    x x    xx       x   x x            x                    |
-|   x         x     x  x   xx      x   x   x            x                   |
-|   x        x      x   x  x x    x   x     x            x                  |
-|  x        x       x    x x  x   x  x       xx           x                 |
-|  x       x        x     xx  x   x x          xxxxxxxx    x                |
-|  x      x         x      x  x   xx                   x    x               |
-|  x     x          x      xx x   x                     xxxxxxs             |
-|  x    x           x      x xx   x                                         |
-|  x    x           x      x  x   s                                         |
-|  x    x           x      x  s                                             |
-|  x    x           x      x                                                |
-| x    x            x      x                                                |
-|x    x             x      x                                                |
-|x   x              x      x                                                |
-|x  x               x      x                                                |
-|x x                x      x                                                |
-|xx                 x      x                                                |
-|x                  x      x                                                |
-|s                  x      x                                                |
-|                    x     x                                                |
-|                     x    x                                                |
-|                      x   x                                                |
-|                       x  x                                                |
-|                        x x                                                |
-|                         xx                                                |
-|                          x                                                |
-|                          s                                                |
-|                                                                           |
-|                                                                           |
-+---------------------------------------------------------------------------+
+  +  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  +  
+  |                                                           s                                         s                                                                                                                             |  
+  |     s                                                     x                                         x                                                                                      s                                      |  
+  |     x                                                     x  x                                   x  x                                                                                      x                                      |  
+  |     x  x                                                  x     x                             x     x                                                                                      x                                      |  
+  |     x     x                                               x        x                       x        x                                                                                   x  x                                      |  
+  |     x        x                                            x           x                 x           x                                                                                x     x                                      |  
+  |     x           x                                         x              x           x              x                                                                             x        x                                      |  
+  |     s  x  x  x  x  x  x                                   x                 x     x              x                                                                             x           x                                      |  
+  |        x  x           x  x                                x                    x              x                                                                             x           x                                         |  
+  |           x  x           x  x  x  x  x  x  x  x  x        x                    x              x                                                                          x           x                                            |  
+  |           x     x           x                       x  x  x                    x              x                                                                       x              x                                            |  
+  |           x        x           x                          x                    x              x                                                                    x                 x                                            |  
+  |           x           x           x                       x  x              x  x              x                                                                 x                    x                                            |  
+  |           x              x           x                    x     x        x     x              x                                                              x                       x                                            |  
+  |           x                 x           x                 x        x  x        x              x                                                           x                          x                                            |  
+  |           x                    x           x              x        x  x        x              x                                                        x                             x                                            |  
+  |           x                       x           x           x     x        x     x           x                                                        x                                x                                            |  
+  |              x                       x           x        x  x              x  x  s  x  x  x  x  x  x                                            x                                x                                               |  
+  |              x                          x           x     x                    x        x  x           x                                      x                                   x                                               |  
+  |              x                             x           x  x                    x  x        x              x  x  x  x  x  x  x  x           x                                      x                                               |  
+  |              x                                x     x     x                    x     x     x  x                                   x  x  x  x  x  x                                x                                               |  
+  |              x                                   x        x  x                 x        x  x     x                                   x              x                             x                                               |  
+  |              x                                x     x     x     x              x           x        x                             x                    x                          x                                               |  
+  |              x                             x           x  x        x           x           x  x        x                       x                          x                       x                                               |  
+  |              x                          x                 x           x        x           x     x        x                 x                                x                    x                                               |  
+  |              x                       x                    x  x           x     x           x        x        x           x                                      x           s  x  x  x                                            |  
+  |              x                    x                       x     x           x  x           x           x        x     x                                            x              x     x                                         |  
+  |              x                 x              s  x  x  x  x  x  x  x           x           x              x        x                                                  x        x     x     x                                      |  
+  |              x              x                       x     x        x  x        x           x                 x  x     x                                                  x  x           x     x  x  x                             |  
+  |              x           x                             x  x           x  x  x  x  x  x  x  x                 x  x        x                                               x  x              x           x                          |  
+  |                 x     x                                   x                 x  x           x                 x     x        x                                         x        x              x           x                       |  
+  |                    x                                      x  x                 x        x     x              x        x        x                                   x              x              x           x                    |  
+  |                 x     x                                   x     x              x  x  x           x           x           x        x                             x                    x              x           x                 |  
+  |              x           x                       x  x  x  x  x  x  x  s        x  x  x              x        x              x        x                       x                          x              x  x  x     x              |  
+  |           x                 x              s  x  x  x  x  x  x  x     x  x  x  x  x  x  x              x     x                 x        x                 x                                x                    x     x           |  
+  |           x                    x                          x                 x  x           x              x  x                    x        x           x                                      x                    x     x        |  
+  |           x                       x                       x              x     x              x  x  x  x  x  x  s                    x        x     x                                            x                    x  x  x  s  |  
+  |           x                          x                    x           x        x                 x           x                          x        x                                                  x                             |  
+  |           x                             x                 x        x           x                    x        x                             x  x     x                                                  x                          |  
+  |           x                                x              x     x              x                       x  x                                x  x        x                                                  x                       |  
+  |           x                                   x           x  x                 x  x                       x                             x        x        x                                                  x                    |  
+  |           x                                      x        x                    x  x                       x  x                       x              x        x  x  x  x  x  x                                   x                 |  
+  |           x                                         x  x  x                    x  x                       x     x                 x                    x                       x  x  x  x  x  x  x  x              x              |  
+  |           x                                         x  x  x                    x  x                       x        x           x                          x                                            x              x           |  
+  |           x                                      x        x                    x  x                       x           x     x                                x                                            x  x  x  x  x  x  s     |  
+  |           x                                   x           x  x                 x  x                       x              x                                      x                                                                 |  
+  |           x                                x              x     x              x  x                       x           x     x                                      x                                                              |  
+  |           x                             x                 x        x           x  x                    x           x           x                                      x                                                           |  
+  |           x                          x                    x           x        x     x              x           x                 x                                      x                                                        |  
+  |        x                          x                       x              x     x        x           x        x                       x  x                                   x                                                     |  
+  |        x                       x                          x                 x  x        x           x     x                                x  x  x  x  x  x  x  x              x                                                  |  
+  |        x                    x                             x                    x        x           x  x                                                           x              x                                               |  
+  |        x                 x                                x                    x  x     x           x                                                                 x  x  x  x  x  x  s                                         |  
+  |        x              x                                   x                    x     x  x           x                                                                                                                             |  
+  |        x              x                                   x                    x        x           s                                                                                                                             |  
+  |        x              x                                   x                    x        s                                                                                                                                         |  
+  |        x              x                                   x                    x                                                                                                                                                  |  
+  |     x              x                                      x                    x                                                                                                                                                  |  
+  |  x              x                                         x                    x                                                                                                                                                  |  
+  |  x           x                                            x                    x                                                                                                                                                  |  
+  |  x        x                                               x                    x                                                                                                                                                  |  
+  |  x     x                                                  x                    x                                                                                                                                                  |  
+  |  x  x                                                     x                    x                                                                                                                                                  |  
+  |  x                                                        x                    x                                                                                                                                                  |  
+  |  s                                                        x                    x                                                                                                                                                  |  
+  |                                                              x                 x                                                                                                                                                  |  
+  |                                                                 x              x                                                                                                                                                  |  
+  |                                                                    x           x                                                                                                                                                  |  
+  |                                                                       x        x                                                                                                                                                  |  
+  |                                                                          x     x                                                                                                                                                  |  
+  |                                                                             x  x                                                                                                                                                  |  
+  |                                                                                x                                                                                                                                                  |  
+  |                                                                                s                                                                                                                                                  |  
+  |                                                                                                                                                                                                                                   |  
+  |                                                                                                                                                                                                                                   |  
+  +  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  +  
